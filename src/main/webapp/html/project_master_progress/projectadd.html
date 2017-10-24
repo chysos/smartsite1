@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../js/common/jquery-2.1.4.min.js"></script>
+    <script src="../../js/common/smartsite_common.js"></script>
+    <script src="../../js/common/_config.js"></script>
+    <script src="../../js/boot1.js"></script>
+</head>
+<body>
+    <div id="form1">
+        <input name="id" class="mini-hidden">
+        <fieldset id="fd1" style="width:98%;">
+            <legend><label>进度原因</label></legend>
+            <table style="width:100%;" class="fieldset-body">
+                <tr>
+                    <td style="width:10%;">类别：</td>
+                    <td style="width: 90%">
+                        <input id="type" name="type" class="mini-combobox" data="type"/></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;">原因：</td>
+                    <td style="width: 90% ;padding-right: 20px">
+                        <input name="reason" class="mini-textarea"   style="width: 100%"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:10%;">备注：</td>
+                    <td style="width: 90%;padding-right: 20px">
+                        <input name="comments" class="mini-textarea"  style="width: 100%" />
+                    </td>
+
+
+                </tr>
+            </table>
+            <div style="text-align:center;padding:10px;">
+                <a class="mini-button" onclick="onOk" style="width:60px;margin-right:20px;">确定</a>
+                <a class="mini-button" onclick="onCancel" style="width:60px;">取消</a>
+            </div>
+        </fieldset>
+    </div>
+</body>
+<script>
+    var type = [{id: 1, text: '提前'}, {id: 2, text: '延迟'}];
+    mini.parse();
+    var form = new mini.Form("#form1");
+    var newedit;
+    //获取从父页面传的值
+    function SetData(data) {
+        alert(1111);
+        //跨页面传递的数据对象，克隆后才可以安全使用
+        data = mini.clone(data);
+        newedit = data;//全局
+        debugger;
+        if (data.action == "edit") {
+//              var grid = mini.get("tabs1");//基础信息
+            //明细 grid_detail
+            //附件 grid_ad
+
+            var params = {
+                id: data.id
+            };
+            console.log(params);
+            postAjaxData(apiUrl+'api/inout/getTestOneReasonInfo', params,
+                function (data) {
+                    if (data.resultCode == '0000') {
+                        debugger;
+
+
+                        form.setData(data.resultData);
+
+                    } else {
+                        alert(data.resultData);
+                    }
+                });
+        }
+    }
+    function SaveData() {
+        var o = form.getData();
+
+        form.validate();
+        if (form.isValid() == false) return;
+
+        var json = mini.encode([o]);
+        $.ajax({
+            url: "../data/AjaxService.aspx?method=SaveEmployees",
+            type: 'post',
+            data: { data: json },
+            cache: false,
+            success: function (text) {
+                CloseWindow("save");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+                CloseWindow();
+            }
+        });
+    }
+
+</script>
+</html>

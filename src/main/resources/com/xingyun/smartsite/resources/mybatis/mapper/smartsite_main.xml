@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="smartsite">
+
+	<resultMap id="MenuNode" type="com.xingyun.smartsite.model.MenuNode">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="sequence" column="sequence" />
+		<result property="pid" column="pid" />
+		<result property="rankId" column="rank_id" />
+		<result property="htmlName" column="html_name" />
+		<result property="hasChild" column="has_child" />
+	</resultMap>
+
+	<select id="getMenuNode" resultMap="MenuNode">
+		select
+		id,pid,name,sequence,rank_id,html_name,has_child from t_menu_node
+	</select>
+
+
+</mapper>

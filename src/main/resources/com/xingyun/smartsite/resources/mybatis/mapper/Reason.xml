@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="reason">
+    <select parameterType="com.xingyun.smartsite.model.ProcessReason" resultType="java.util.HashMap" id="getTestInfo">
+
+ select *, DATE_FORMAT(t.create_time,'%Y-%m-%d
+		') as createTime from t_project_progress as t
+ where is_del=0
+        <if test="type !=null">
+        AND t.type=#{type}
+    </if>
+        <if test="create_user !=null">
+            AND t.create_user=#{create_user}
+        </if>
+        <if test="create_time !=null">
+            AND t.create_time=#{create_time}
+        </if>
+        <if test="reason !=null">
+            AND t.reason=#{reason}
+        </if>
+
+        <if test="comments !=null">
+            AND t.comments=#{comments}
+        </if>
+</select>
+<!--查询单条-->
+    <select parameterType="com.xingyun.smartsite.model.ProcessReason" resultType="com.xingyun.smartsite.model.ProcessReason" id="getTestOneInfo">
+        SELECT *FROM t_project_progress WHERE id=#{id}
+
+    </select>
+    <insert  parameterType="com.xingyun.smartsite.model.ProcessReason" id="creatInfo">
+        insert into t_project_progress
+        (type,reason,comments,
+       create_time,create_user
+        ) values(
+       #{type},#{reason},#{comments},now(),
+        #{create_user})
+    </insert>
+
+<update  parameterType="com.xingyun.smartsite.model.ProcessReason" id="updateInfo">
+    update
+    t_project_progress set type=#{type},reason = #{reason},comments = #{comments} where id=#{id}
+
+</update>
+
+<update  parameterType="com.xingyun.smartsite.model.ProcessReason" id="deleteReasonInfo">
+  update  t_project_progress set is_del=1 where id=#{id}
+</update>
+
+</mapper>

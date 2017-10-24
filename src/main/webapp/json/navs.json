@@ -1,0 +1,78 @@
+[{
+	"title" : "设备管理",
+	"icon" : "icon-computer",
+	"href" : "page/main.html",
+	"spread" : false,
+	"children":[
+		{
+			 "title":"demo",
+			 "icon":"icon-text",
+			 "href":"page/img/images.html",
+			 "spread":false
+		}
+	]
+},{
+	"title" : "数据字典",
+	"icon" : "icon-text",
+	"href" : "page/news/newsList.html",
+	"spread" : false,
+	"children":[
+		{
+			"title": "进度原因",
+			"icon":"icon-text",
+			"href":"page/data/schedule.html",
+			"spread":false
+		},{
+			"title": "进度原因",
+			"icon":"icon-text",
+			"href":"page/img/images.html",
+			"spread":false
+		},
+		{
+			"title": "进度原因",
+			"icon":"icon-text",
+			"href":"page/img/images.html",
+			"spread":false
+		},{
+			"title": "进度原因",
+			"icon":"icon-text",
+			"href":"page/img/images.html",
+			"spread":false
+		}
+	]
+},{
+	"title" : "数据字典",
+	"icon" : "&#xe64c;",
+	"href" : "page/links/linksList.html",
+	"spread" : false
+},{
+	"title" : "系统系统设置",
+	"icon" : "&#xe631;",
+	"href" : "page/systemParameter/systemParameter.html",
+	"spread" : false
+},{
+	"title" : "BIM智慧建造",
+	"icon" : "&#xe630;",
+	"href" : "",
+	"spread" : false,
+	"children" : [
+		{
+			"title" : "页面",
+			"icon" : "&#xe61c;",
+			"href" : "page/404.html",
+			"spread" : false
+		},
+		{
+			"title" : "登录",
+			"icon" : "&#xe609;",
+			"href" : "page/login/login.html",
+			"spread" : false,
+			"target" : "_blank"
+		}
+	]
+},{
+	"title" : "机电管理",
+	"icon" : "&#xe631;",
+	"href" : "page/systemParameter/systemParameter.html",
+	"spread" : false
+}]

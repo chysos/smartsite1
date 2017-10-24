@@ -1,0 +1,143 @@
+﻿
+
+/*----------------------------------- toolbar ----------------------------------*/
+
+.nteport-base-table
+{
+   /* border:solid 1px;*/
+    background:rgb(245, 245, 245)  repeat-x 0 0;
+    font-size: 20px;
+    border: solid 3px #aaa;
+    margin-top: 8px;
+}
+
+.nteport-base-table legend {
+    margin-left: 20px;
+}
+
+.nteport-base-table div {
+    padding: 5px;
+}
+
+.nteport-base-table-only {
+    border: solid 1px; color: rgb(201, 204, 204);
+    background: rgb(245, 245, 245) repeat-x 0 0;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.nteport-base-table table
+{
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+
+.nteport-base-table table tr
+{
+    border-bottom: dashed 1px #808080;
+    width: 100%;
+    height: 2px;
+
+}
+
+.nteport-base-table table td {
+    height: 32px;
+}
+
+.nteport-base-table2 {
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.nteport-base-table2 tr {
+    border-bottom: dashed 1px #808080;
+    width: 100%;
+    height: 2px;
+}
+
+.nteport-base-table2 td {
+    height: 32px;
+}
+.separator
+{
+    border-left:solid 1px #A8A8A8;
+}
+
+/*----------------------------------- body ----------------------------------*/
+body {
+    margin: 0px; padding: 0px; border: 0px; width: 100%; height: 100%; overflow: hidden;
+}
+
+.mini-panel-body {
+    padding: 0px !important;
+}
+
+.bg {
+    background-color: rgb(245, 245, 245) ;
+    overflow-x: hidden;
+
+}
+
+fieldset {
+    border: solid 1px rgb(204, 204, 204);
+}
+
+.hideFieldset {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.hideFieldset .fieldset-body {
+    display: none;
+}
+
+/*首页头部背景色*/
+.header {
+    background-color: #F5F5F5 !important;
+}
+
+/*首页低部背景色*/
+.footer{
+    background-color: #F5F5F5 !important;
+}
+
+/*表格内查看或编辑按钮样式*/
+.mini-button-tbl {
+    /*
+    background: #FFFFFF;
+    border-color: #CCCCCC;*/
+    border: 1px solid #A9ACB5;/*来自miniui.css*/
+    background: #FFFFFF;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    margin: 1px 0 1px 0;
+    height: 20px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+body a:hover.mini-button-tbl {
+    color: #333;
+    border-color: #adadad;
+    background: #ebebeb;
+    padding: 2px 6px 2px 6px;
+    margin: 1px 0 1px 0;
+    height: 20px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+.mini-panel-border { /*灰色首页panel边框无颜色bug*/
+    border: 1px solid #CCCCCC !important;
+}
+
+/*表格内查看或编辑按钮样式*/
+.mini-a-tbl {
+    color: #333333;
+}
+
+body a:hover.mini-a-tbl {
+    color: #adadad;
+}
