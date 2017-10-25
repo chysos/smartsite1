@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="projectInfo">
+    <select id="getProjectList" resultType="com.xingyun.smartsite.model.Project.Project" parameterType="com.xingyun.smartsite.model.Project.Project">
+        SELECT
+	t.id AS projectId,
+	t. NAME,
+	t.area,
+	t.addr,
+	t.scale AS projectNature,
+	t.invest AS type,
+	t.structure,
+	t.qualification AS natural1,
+	t.cost,
+	DATE_FORMAT(
+		t.contract_date,
+		'%Y-%m-%d'
+	) AS contractDate,
+	t.construction_area,
+	DATE_FORMAT(
+		t.begin_date,
+		'%Y-%m-%d '
+	) AS startTime,
+	t.status,
+	t.owner_unit,
+	t.construction_unit,
+	t.design_unit AS desUnit,
+	t.supervision_unit AS supervisorUnit,
+	t.bulider_unit AS conUnit,
+	DATE_FORMAT(
+		t.create_time,
+		'%Y-%m-%d'
+	) AS create_time,
+	DATE_FORMAT(
+		t.end_date,
+		'%Y-%m-%d'
+	) AS finishTime,
+	t.content,
+	t.is_del,
+	t.modify_time,
+	t.modify_user,
+	t.photo AS mainImg
+FROM
+	t_project_info AS t
+WHERE
+	id = #{projectId}
+
+    </select>
+
+
+</mapper>
