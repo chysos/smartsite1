@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="schedulePhoto">
+    <select id="findSchedulePhoto" parameterType="java.util.Map"
+            resultType="com.xingyun.smartsite.api.engineering.photo.EngineeringPhotoModel">
+      select ph.describe as des,ph.photo as imgPath,p.name as location,ph.temperature as temp,
+     ph.photo_time as uploadTime,ph.photo_user as user,
+     ph.weather as weather,ph.wind as wind
+      from t_project_schedule_complete com LEFT  JOIN
+    t_project_schedule_complete_photo ph   on ph.schedule_id=com.id
+      LEFT JOIN t_project_schedule p on p.id=com.sid
+        where com.is_del=0 and p.is_del=0
+        <if test="startTime != null and startTime != ''">AND t.wtime <![CDATA[>=]]> #{startTime}</if>
+        <if test="endTime != null and endTime != ''">AND t.wtime <![CDATA[<=]]>#{endTime}</if>
+        <if test="projectId != null and projectId != ''">AND com.pid = #{projectId}</if>
+    </select>
+</mapper>
