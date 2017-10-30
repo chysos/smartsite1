@@ -1,4 +1,4 @@
-package com.xingyun.smartsite.api.overview;
+package com.xingyun.smartsite.controller.overview;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

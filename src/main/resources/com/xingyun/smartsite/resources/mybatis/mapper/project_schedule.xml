@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="projectSchedule">
+    <select id="findSchedule" parameterType="java.util.Map"
+            resultType="com.xingyun.smartsite.controller.worker.EngineeringPhotoModel">
+      select sc.deviation,sc.begin_date_plan as planStart,
+        sc.end_date_plan as planFinish,sc.process_status as progressState,
+        sc.begin_date_actual as realFinish,sc.end_date_actual as realStart,
+        sc.reason as reason,sc.status as state,sc.name as title
+      from t_project_schedule sc
+        where sc.is_del=0 and sc.is_del=0
+
+        <if test="projectId != null and projectId != ''">AND com.pid = #{projectId}</if>
+    </select>
+</mapper>

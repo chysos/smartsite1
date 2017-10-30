@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="schedulePhoto">
     <select id="findSchedulePhoto" parameterType="java.util.Map"
-            resultType="com.xingyun.smartsite.api.engineering.photo.EngineeringPhotoModel">
+            resultType="com.xingyun.smartsite.controller.worker.EngineeringPhotoModel">
       select ph.describe as des,ph.photo as imgPath,p.name as location,ph.temperature as temp,
      ph.photo_time as uploadTime,ph.photo_user as user,
      ph.weather as weather,ph.wind as wind
